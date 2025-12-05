@@ -1,0 +1,315 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* --- General Styling --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #e84393; /* A pink accent color */
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Header Top Banner --- */
+.header__top-banner {
+    background-color: #2c3e50; /* Dark blue */
+    padding: 8px 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header__social-links a {
+    color: #ecf0f1; /* Light gray */
+    margin: 0 8px;
+    font-size: 16px;
+}
+
+.header__social-links a:hover {
+    color: #fff;
+}
+
+.header__clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* --- Main Header Content --- */
+.header__main-container {
+    padding: 10px 30px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+.header__logo img {
+    max-height: 70px; /* Adjust as needed */
+    width: auto;
+}
+
+/* Using Flexbox for alignment */
+.header__logo, .header__account-section {
+    display: flex;
+    align-items: center;
+}
+
+.header__account-info-row {
+    font-size: 15px;
+}
+.header__account-info-row a {
+    margin: 0 5px;
+}
+.header__account-info-row i {
+    margin-right: 5px;
+}
+
+.header__clearfix-div {
+    display: none; /* Not needed with flexbox */
+}
+
+
+/* --- Navigation Bar --- */
+.header__navbar {
+    width: 100%; /* Take full width to wrap to a new line */
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    margin: 10px 0 0 0; /* Add margin top */
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header__navbar-container {
+    padding: 0 15px;
+}
+
+.header__navbar-links,
+.header__navbar-links-right {
+    display: flex;
+    align-items: center;
+}
+
+.header__navbar-links > li > a {
+    padding: 20px 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+}
+
+.header__navbar-links > li > a:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- Dropdown --- */
+.header__navbar-dropdown {
+    position: relative;
+}
+
+.header__navbar-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 200px;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+.header__navbar-dropdown:hover .header__navbar-dropdown-menu {
+    display: block; /* Show on hover */
+}
+
+.header__navbar-dropdown-menu li a {
+    padding: 12px 20px;
+    display: block;
+    font-size: 14px;
+}
+.header__navbar-dropdown-menu li a i {
+    margin-right: 8px;
+}
+
+.header__navbar-dropdown-divider {
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 5px 0;
+}
+
+/* --- Right Nav Section (Search & Cart) --- */
+.header__navbar-collapsible-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Changed from center to baseline */
+    width: 100%;
+}
+
+.header__navbar-links-right {
+    display: flex;
+    align-items: center;
+}
+
+.header__navbar-links-right form {
+    display: flex;
+    align-items: center;
+}
+
+.header__search-group {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+.header__search-input {
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    outline: none;
+}
+.header__search-button {
+    background: #e84393;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.header__search-button:hover {
+    background: #d6307f;
+}
+
+.header__cart-button {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.header__cart-button .fa-shopping-cart {
+    color: #e84393;
+}
+
+/* --- Mobile Navigation --- */
+.header__navbar-mobile-toggle {
+    display: none; /* Hidden on desktop */
+}
+
+@media (max-width: 992px) {
+    .header__logo {
+        width: 100%;
+        justify-content: center;
+        float: none;
+    }
+    .header__account-section {
+        width: 100%;
+        justify-content: center;
+        float: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .header__navbar-mobile-toggle {
+        display: block; /* Show on mobile */
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .header__navbar-toggle-icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: #333;
+        margin: 4px 0;
+    }
+
+    .header__navbar-collapsible-menu {
+        display: none; /* Hide menu by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    /* This would require JS to toggle the display, but for now we make it visible for styling */
+    /* When toggle is clicked, a class 'is-open' should be added to header__navbar-collapsible-menu */
+    .header__navbar-collapsible-menu.is-open {
+       display: flex;
+    }
+
+    .header__navbar-links,
+    .header__navbar-links-right {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    .header__navbar-links > li {
+        width: 100%;
+    }
+    .header__navbar-links > li > a {
+        padding: 15px;
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header__navbar-dropdown-menu {
+        position: static;
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        padding-left: 20px;
+    }
+    
+    .header__navbar-links-right {
+        padding: 15px;
+    }
+    .header__search-group {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .header__search-input {
+        width: 100%;
+    }
+    .header__cart-total {
+        width: 100%;
+    }
+    .header__cart-button {
+        width: 100%;
+        text-align: center;
+    }
+}
