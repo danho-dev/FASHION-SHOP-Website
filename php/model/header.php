@@ -1,16 +1,15 @@
 <?php
-    session_start();
-    error_reporting(E_ALL ^ E_DEPRECATED);
-    require_once('connect.php');
-    $prd = 0;
-    if (isset($_SESSION['cart']))
-    {
-        $prd = count($_SESSION['cart']);
-    }
+session_start();
+error_reporting(E_ALL ^ E_DEPRECATED);
+require_once('connect.php');
+$prd = 0;
+if (isset($_SESSION['cart'])) {
+    $prd = count($_SESSION['cart']);
+}
 
-    if (isset($_GET['ls'])) {
-        echo "<script type=\"text/javascript\">alert(\"Bạn đã đăng nhập thành công!\");</script>";
-    }
+if (isset($_GET['ls'])) {
+    echo "<script type=\"text/javascript\">alert(\"Bạn đã đăng nhập thành công!\");</script>";
+}
 ?>
 
 <header>
@@ -34,21 +33,19 @@
         <div class="header__account-section">
             <div class="header__account-info-row">
                 <?php
-                    if(isset($_SESSION['username']))
-                    {
+                if (isset($_SESSION['username'])) {
                 ?>
-                <i class="fa fa-user fa-lg"></i>
-                <span><?php echo $_SESSION['username']?></span> &nbsp;
-                <span><i class="fa fa-sign-out"></i><a href="user/logout.php"> Đăng xuất </a></span>
-                <?php   }
-                    else {
-            ?>
-                <i class="fa fa-user fa-lg"></i>
-                <a href="user/login.php"> Đăng nhập </a> &nbsp;
-                <i class="fa fa-users fa-lg"></i>
-                <a href="user/register.php"> Đăng ký </a>
+                    <i class="fa fa-user fa-lg"></i>
+                    <span><?php echo $_SESSION['username'] ?></span> &nbsp;
+                    <span><i class="fa fa-sign-out"></i><a href="user/logout.php"> Đăng xuất </a></span>
+                <?php   } else {
+                ?>
+                    <i class="fa fa-user fa-lg"></i>
+                    <a href="user/login.php"> Đăng nhập </a> &nbsp;
+                    <i class="fa fa-users fa-lg"></i>
+                    <a href="user/register.php"> Đăng ký </a>
                 <?php
-                    }
+                }
                 ?>
             </div>
         </div>
@@ -90,7 +87,7 @@
                                 <input type="text" maxlength="50" name="search" id="searchs" class="header__search-input"
                                     placeholder="Nhập từ khóa..." style="font-size: 14px;">
                                 <button class="header__search-button" type="submit"><span
-                                            class="fa fa-search"></span></button>
+                                        class="fa fa-search"></span></button>
                             </div>
                             <div class="header__cart-total">
                                 <a class="header__cart-background" href="view-cart.php" title="Giỏ hàng">
@@ -98,15 +95,13 @@
                                         <span class="fa fa-shopping-cart"></span>&nbsp;
                                         <span id="cart-total">
                                             <?php
-                                                if(isset($_SESSION['cart']))
-                                                {
-                                                    $cart = $_SESSION['cart'];
-                                                    $sl = count($_SESSION['cart']);
-                                                    echo $sl;
-                                                }
-                                                else {
-                                                    echo "0";
-                                                }
+                                            if (isset($_SESSION['cart'])) {
+                                                $cart = $_SESSION['cart'];
+                                                $sl = count($_SESSION['cart']);
+                                                echo $sl;
+                                            } else {
+                                                echo "0";
+                                            }
                                             ?>
                                         </span> sản phẩm
                                     </button>

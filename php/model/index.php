@@ -26,27 +26,27 @@ if (isset($_SESSION['cart'])) {
 <body>
     <!-- <a href="#" class="back-to-top"><i class="fa fa-arrow-up"></i></a> -->
 
-    <?php 
+    <?php
     include("header.php");
     include("banner.php");
     ?>
-        <!-- PRODUCT LISTTING | SẢN PHẨM MỚI -->
-        <div class="container">
-            <div class="index">
-                <div class="index__category">
-                    <div class="index__header">
-                        <h3 class="index__title">SẢN PHẨM MỚI</h3>
-                    </div>
-                    <div class="index__grid">
-                        <?php
-                            $sql = "SELECT id,image,name,price FROM products WHERE category_id=3 AND status = 0";
-                            $result = mysqli_query($conn,$sql);
-                            while ($kq = mysqli_fetch_assoc($result)) {
-                        ?>
+    <!-- PRODUCT LISTTING | SẢN PHẨM MỚI -->
+    <div class="container">
+        <div class="index">
+            <div class="index__category">
+                <div class="index__header">
+                    <h3 class="index__title">SẢN PHẨM MỚI</h3>
+                </div>
+                <div class="index__grid">
+                    <?php
+                    $sql = "SELECT id,image,name,price FROM products WHERE category_id=3 AND status = 0";
+                    $result = mysqli_query($conn, $sql);
+                    while ($kq = mysqli_fetch_assoc($result)) {
+                    ?>
                         <div class="index__item">
                             <div class="index__card">
                                 <div class="index__image-wrapper">
-                                    <img class="index__image" src="<?php echo "../../". $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                    <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
                                 </div>
                                 <div class="index__name">
                                     <?php echo $kq['name']; ?>
@@ -66,25 +66,25 @@ if (isset($_SESSION['cart'])) {
                                 </div>
                             </div>
                         </div>
-<?php } ?>
-                    </div>
+                    <?php } ?>
                 </div>
+            </div>
 
-                <!-- PRODUCT LISTTING | THỜI TRANG NAM -->
-                <div class="index__category">
-                    <div class="index__header">
-                        <h3 class="index__title">Thời Trang Nam</h3>
-                    </div>
-                    <div class="index__grid">
-                        <?php
-                            $sql = "SELECT id,image,name,price FROM products WHERE category_id=1 LIMIT 8";
-                            $result = mysqli_query($conn,$sql);
-                            while ($kq = mysqli_fetch_assoc($result)) {
-                        ?>
+            <!-- PRODUCT LISTTING | THỜI TRANG NAM -->
+            <div class="index__category">
+                <div class="index__header">
+                    <h3 class="index__title">Thời Trang Nam</h3>
+                </div>
+                <div class="index__grid">
+                    <?php
+                    $sql = "SELECT id,image,name,price FROM products WHERE category_id=1 LIMIT 8";
+                    $result = mysqli_query($conn, $sql);
+                    while ($kq = mysqli_fetch_assoc($result)) {
+                    ?>
                         <div class="index__item">
                             <div class="index__card">
                                 <div class="index__image-wrapper">
-                                    <img class="index__image" src="<?php echo "../../". $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                    <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
                                 </div>
                                 <div class="index__name">
                                     <?php echo $kq['name']; ?>
@@ -104,25 +104,25 @@ if (isset($_SESSION['cart'])) {
                                 </div>
                             </div>
                         </div>
-                        <?php } ?>
-                    </div>
+                    <?php } ?>
                 </div>
+            </div>
 
-                <!-- PRODUCT LISTTING | THỜI TRANG NỮ -->
-                <div class="index__category">
-                    <div class="index__header">
-                        <h3 class="index__title">Thời Trang Nữ</h3>
-                    </div>
-                    <div class="index__grid">
-                        <?php
-                            $sql = "SELECT id,image,name,price FROM products WHERE category_id=2 LIMIT 8";
-                            $result = mysqli_query($conn,$sql);
-                            while ($kq = mysqli_fetch_assoc($result)) {
-                        ?>
+            <!-- PRODUCT LISTTING | THỜI TRANG NỮ -->
+            <div class="index__category">
+                <div class="index__header">
+                    <h3 class="index__title">Thời Trang Nữ</h3>
+                </div>
+                <div class="index__grid">
+                    <?php
+                    $sql = "SELECT id,image,name,price FROM products WHERE category_id=2 LIMIT 8";
+                    $result = mysqli_query($conn, $sql);
+                    while ($kq = mysqli_fetch_assoc($result)) {
+                    ?>
                         <div class="index__item">
                             <div class="index__card">
                                 <div class="index__image-wrapper">
-                                    <img class="index__image" src="<?php echo "../../". $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                    <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
                                 </div>
                                 <div class="index__name">
                                     <?php echo $kq['name']; ?>
@@ -142,9 +142,14 @@ if (isset($_SESSION['cart'])) {
                                 </div>
                             </div>
                         </div>
-                        <?php } ?>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
+    </div>
 </body>
+
+<?php 
+include "partner.php";
+include "footer.php";
+?>

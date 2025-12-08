@@ -10,9 +10,9 @@
             $result = mysqli_query($conn, $sql);
             while ($kq = mysqli_fetch_assoc($result)) {
             ?>
-            <div class="swiper-slide">
-                <img class="banner-slider__image" src="<?php echo "../../". $kq['image']; ?>" alt="Banner Image">
-            </div>
+                <div class="swiper-slide">
+                    <img class="banner-slider__image" src="<?php echo "../../" . $kq['image']; ?>" alt="Banner Image">
+                </div>
             <?php } ?>
         </div>
         <!-- If we need pagination -->

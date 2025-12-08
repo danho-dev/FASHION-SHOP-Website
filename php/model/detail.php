@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
+
 <body>
     <!-- button top -->
     <!-- <a href="#" class="back-to-top"><i class="fa fa-arrow-up"></i></a> -->
-    
-<?php
+
+    <?php
     require_once("connect.php");
     include 'header.php';
     error_reporting(2);
@@ -25,31 +26,29 @@
     if ($row = mysqli_fetch_assoc($result)) {
         $thum_Image = $row['image'];
     }
-?>
+    ?>
     <div class="container">
         <div class="detail">
             <div class="detail__main">
                 <div class="detail__image-column">
-                    <img class="detail__image" src="<?php echo "../../".$thum_Image; ?>" alt="<?php echo $row['name']; ?>">
+                    <img class="detail__image" src="<?php echo "../../" . $thum_Image; ?>" alt="<?php echo $row['name']; ?>">
                 </div>
                 <div class="detail__info-column">
                     <h1 class="detail__name"><?php echo $row['name']; ?></h1>
                     <hr class="detail__divider">
                     <div class="detail__price-section">
                         <?php
-                            if ($row['saleprice'] > 0)
-                            {
-                                $gia = $row['price'] - ($row['price'] * $row['saleprice'] / 100);
+                        if ($row['saleprice'] > 0) {
+                            $gia = $row['price'] - ($row['price'] * $row['saleprice'] / 100);
                         ?>
                             <p class="detail__price--old">Giá cũ: <del><?php echo number_format($row['price']); ?> đ</del></p>
                             <p class="detail__price--current">Giá giảm còn: <?php echo number_format($gia); ?> đ</p>
                         <?php
-                            } else
-                            {
+                        } else {
                         ?>
-                                <p class="detail__price--current">Giá sản phẩm: <?php echo number_format($row['price']); ?> đ</p>
+                            <p class="detail__price--current">Giá sản phẩm: <?php echo number_format($row['price']); ?> đ</p>
                         <?php
-                            }
+                        }
                         ?>
                     </div>
                     <hr class="detail__divider">
@@ -70,4 +69,5 @@
 
     <?php include "footer.php" ?>
 </body>
+
 </html>
