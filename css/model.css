@@ -190,539 +190,539 @@ ul {
 .header__account-section {
   display: flex;
   align-items: center;
-.header__logo,
-.header__account-section {
-  display: flex;
-  align-items: center;
-}
-
-.header__account-info-row {
-  font-size: 15px;
-}
-.header__account-info-row a {
-  margin: 0 5px;
-}
-.header__account-info-row i {
-  margin-right: 5px;
-}
-
-.header__clearfix-div {
-  display: none; /* Not needed with flexbox */
-}
-
-/* --- Navigation Bar --- */
-.header__navbar {
-  width: 100%; /* Take full width to wrap to a new line */
-  background-color: #fff;
-  border: none;
-  border-radius: 0;
-  margin: 10px 0 0 0; /* Add margin top */
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.header__navbar-container {
-  padding: 0 15px;
-  padding: 0 15px;
-}
-
-.header__navbar-links,
-.header__navbar-links-right {
-  display: flex;
-  align-items: center;
-}
-
-.header__navbar-links > li > a {
-  padding: 20px 18px;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 14px;
-  display: block;
-}
-
-.header__navbar-links > li > a:hover {
-  background-color: #f9f9f9;
-}
-
-/* --- Dropdown --- */
-.header__navbar-dropdown {
-  position: relative;
-}
-
-.header__navbar-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
-  display: none; /* Hidden by default */
-  z-index: 1000;
-}
-
-.header__navbar-dropdown:hover .header__navbar-dropdown-menu {
-  display: block; /* Show on hover */
-}
-
-.header__navbar-dropdown-menu li a {
-  padding: 12px 20px;
-  display: block;
-  font-size: 14px;
-}
-.header__navbar-dropdown-menu li a i {
-  margin-right: 8px;
-}
-
-.header__navbar-dropdown-divider {
-  height: 1px;
-  background-color: #f0f0f0;
-  margin: 5px 0;
-}
-
-/* --- Right Nav Section (Search & Cart) --- */
-.header__navbar-collapsible-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline; /* Changed from center to baseline */
-  width: 100%;
-}
-
-.header__navbar-links-right {
-  display: flex;
-  align-items: center;
-}
-
-.header__navbar-links-right form {
-  display: flex;
-  align-items: center;
-}
-
-.header__search-group {
-  display: flex;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-right: 15px;
-}
-.header__search-input {
-  border: none;
-  padding: 8px 12px;
-  font-size: 14px;
-  outline: none;
-}
-.header__search-button {
-  background: #e84393;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.header__search-button:hover {
-  background: #d6307f;
-}
-
-.header__cart-button {
-  background: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 8px 15px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.header__cart-button .fa-shopping-cart {
-  color: #e84393;
-}
-
-/* --- Mobile Navigation --- */
-.header__navbar-mobile-toggle {
-  display: none; /* Hidden on desktop */
-}
-
-@media (max-width: 992px) {
-  .header__logo {
-    width: 100%;
-    justify-content: center;
-    float: none;
-  }
+  .header__logo,
   .header__account-section {
-    width: 100%;
-    justify-content: center;
-    float: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  .header__navbar-mobile-toggle {
-    display: block; /* Show on mobile */
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-  }
-
-  .header__navbar-toggle-icon-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: #333;
-    margin: 4px 0;
-  }
-
-  .header__navbar-collapsible-menu {
-    display: none; /* Hide menu by default on mobile */
-    flex-direction: column;
-    width: 100%;
-    background-color: #fff;
-    border-top: 1px solid #f0f0f0;
-  }
-
-  /* This would require JS to toggle the display, but for now we make it visible for styling */
-  /* When toggle is clicked, a class 'is-open' should be added to header__navbar-collapsible-menu */
-  .header__navbar-collapsible-menu.is-open {
     display: flex;
+    align-items: center;
+  }
+
+  .header__account-info-row {
+    font-size: 15px;
+  }
+  .header__account-info-row a {
+    margin: 0 5px;
+  }
+  .header__account-info-row i {
+    margin-right: 5px;
+  }
+
+  .header__clearfix-div {
+    display: none; /* Not needed with flexbox */
+  }
+
+  /* --- Navigation Bar --- */
+  .header__navbar {
+    width: 100%; /* Take full width to wrap to a new line */
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    margin: 10px 0 0 0; /* Add margin top */
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .header__navbar-container {
+    padding: 0 15px;
+    padding: 0 15px;
   }
 
   .header__navbar-links,
   .header__navbar-links-right {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    display: flex;
+    align-items: center;
   }
 
-  .header__navbar-links > li {
-    width: 100%;
-  }
   .header__navbar-links > li > a {
-    padding: 15px;
-    border-bottom: 1px solid #f0f0f0;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 20px 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+  }
+
+  .header__navbar-links > li > a:hover {
+    background-color: #f9f9f9;
+  }
+
+  /* --- Dropdown --- */
+  .header__navbar-dropdown {
+    position: relative;
   }
 
   .header__navbar-dropdown-menu {
-    position: static;
-    border: none;
-    box-shadow: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+  }
+
+  .header__navbar-dropdown:hover .header__navbar-dropdown-menu {
+    display: block; /* Show on hover */
+  }
+
+  .header__navbar-dropdown-menu li a {
+    padding: 12px 20px;
+    display: block;
+    font-size: 14px;
+  }
+  .header__navbar-dropdown-menu li a i {
+    margin-right: 8px;
+  }
+
+  .header__navbar-dropdown-divider {
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 5px 0;
+  }
+
+  /* --- Right Nav Section (Search & Cart) --- */
+  .header__navbar-collapsible-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Changed from center to baseline */
     width: 100%;
-    padding-left: 20px;
   }
 
   .header__navbar-links-right {
-    padding: 15px;
+    display: flex;
+    align-items: center;
   }
+
+  .header__navbar-links-right form {
+    display: flex;
+    align-items: center;
+  }
+
   .header__search-group {
-    width: 100%;
-    margin-bottom: 10px;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 15px;
   }
   .header__search-input {
-    width: 100%;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    outline: none;
   }
-  .header__cart-total {
-    width: 100%;
+  .header__search-button {
+    background: #e84393;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.3s;
   }
-  .header__cart-button {
-    width: 100%;
-    text-align: center;
+  .header__search-button:hover {
+    background: #d6307f;
   }
-}
 
-/* ================================
+  .header__cart-button {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .header__cart-button .fa-shopping-cart {
+    color: #e84393;
+  }
+
+  /* --- Mobile Navigation --- */
+  .header__navbar-mobile-toggle {
+    display: none; /* Hidden on desktop */
+  }
+
+  @media (max-width: 992px) {
+    .header__logo {
+      width: 100%;
+      justify-content: center;
+      float: none;
+    }
+    .header__account-section {
+      width: 100%;
+      justify-content: center;
+      float: none;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .header__navbar-mobile-toggle {
+      display: block; /* Show on mobile */
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+    .header__navbar-toggle-icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: #333;
+      margin: 4px 0;
+    }
+
+    .header__navbar-collapsible-menu {
+      display: none; /* Hide menu by default on mobile */
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    /* This would require JS to toggle the display, but for now we make it visible for styling */
+    /* When toggle is clicked, a class 'is-open' should be added to header__navbar-collapsible-menu */
+    .header__navbar-collapsible-menu.is-open {
+      display: flex;
+    }
+
+    .header__navbar-links,
+    .header__navbar-links-right {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .header__navbar-links > li {
+      width: 100%;
+    }
+    .header__navbar-links > li > a {
+      padding: 15px;
+      border-bottom: 1px solid #f0f0f0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .header__navbar-dropdown-menu {
+      position: static;
+      border: none;
+      box-shadow: none;
+      width: 100%;
+      padding-left: 20px;
+    }
+
+    .header__navbar-links-right {
+      padding: 15px;
+    }
+    .header__search-group {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .header__search-input {
+      width: 100%;
+    }
+    .header__cart-total {
+      width: 100%;
+    }
+    .header__cart-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  /* ================================
    BANNER SECTION
    ================================ */
-.banner-slider {
-  width: 100%;
-  height: 400px; /* Bạn có thể điều chỉnh chiều cao này */
-  margin-top: 20px; /* Khoảng cách với header */
-}
+  .banner-slider {
+    width: 100%;
+    height: 400px; /* Bạn có thể điều chỉnh chiều cao này */
+    margin-top: 20px; /* Khoảng cách với header */
+  }
 
-.banner-slider .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .banner-slider .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.banner-slider__image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Đảm bảo ảnh lấp đầy slide mà không bị méo */
-}
+  .banner-slider__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy slide mà không bị méo */
+  }
 
-.banner-slider .swiper-pagination-bullet-active {
-  background-color: #e84393; /* Màu hồng cho nút pagination đang hoạt động */
-}
+  .banner-slider .swiper-pagination-bullet-active {
+    background-color: #e84393; /* Màu hồng cho nút pagination đang hoạt động */
+  }
 
-/* ================================
+  /* ================================
    PRODUCT LISTING SECTION
    ================================ */
-.index {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.index__category {
-  margin-bottom: 40px;
-}
-
-.index__header {
-  margin-bottom: 20px;
-  border-bottom: 2px solid #e84393;
-  padding-bottom: 10px;
-}
-
-.index__title {
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-  color: #333;
-}
-
-.index__grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px; /* Compensate for item padding */
-}
-
-.index__item {
-  padding: 0 15px;
-  margin-bottom: 30px;
-  width: 100%; /* Default for mobile */
-}
-
-.index__card {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fff;
-  text-align: center;
-  padding: 15px;
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-}
-
-.index__card:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-5px);
-}
-
-.index__image-wrapper {
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-.index__image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.index__card:hover .index__image {
-  transform: scale(1.05);
-}
-
-.index__name {
-  font-weight: 500;
-  margin-bottom: 10px;
-  height: 40px; /* Set a fixed height to align names */
-  overflow: hidden;
-}
-
-.index__price {
-  color: #e84393;
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.index__actions a {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.index__button {
-  width: 100%;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-.index__button:hover {
-  background-color: #e84393;
-}
-
-/* --- Responsive Grid for Products --- */
-
-/* 2 columns on tablets */
-@media (min-width: 768px) {
-  .index__item {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .index {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
-}
 
-/* 4 columns on desktops */
-@media (min-width: 992px) {
-  .index__item {
-    flex: 0 0 25%;
-    max-width: 25%;
+  .index__category {
+    margin-bottom: 40px;
   }
-}
 
-/* ================================
+  .index__header {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e84393;
+    padding-bottom: 10px;
+  }
+
+  .index__title {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: #333;
+  }
+
+  .index__grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* Compensate for item padding */
+  }
+
+  .index__item {
+    padding: 0 15px;
+    margin-bottom: 30px;
+    width: 100%; /* Default for mobile */
+  }
+
+  .index__card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    text-align: center;
+    padding: 15px;
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .index__card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .index__image-wrapper {
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+
+  .index__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .index__card:hover .index__image {
+    transform: scale(1.05);
+  }
+
+  .index__name {
+    font-weight: 500;
+    margin-bottom: 10px;
+    height: 40px; /* Set a fixed height to align names */
+    overflow: hidden;
+  }
+
+  .index__price {
+    color: #e84393;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .index__actions a {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .index__button {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .index__button:hover {
+    background-color: #e84393;
+  }
+
+  /* --- Responsive Grid for Products --- */
+
+  /* 2 columns on tablets */
+  @media (min-width: 768px) {
+    .index__item {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  /* 4 columns on desktops */
+  @media (min-width: 992px) {
+    .index__item {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  /* ================================
    PARTNER SECTION
    ================================ */
-.partner {
-  padding: 30px 0;
-  background-color: #fff;
-  margin-top: 30px;
-  border-top: 1px solid #eee;
-}
+  .partner {
+    padding: 30px 0;
+    background-color: #fff;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+  }
 
-.partner__header {
-  text-align: center;
-  margin-bottom: 30px;
-}
+  .partner__header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
 
-.partner__title {
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-  color: #333;
-  display: inline-block;
-  position: relative;
-}
+  .partner__title {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: #333;
+    display: inline-block;
+    position: relative;
+  }
 
-.partner__grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
+  .partner__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 
-.partner__item {
-  padding: 0 20px;
-  margin-bottom: 20px;
-}
+  .partner__item {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
 
-.partner__image {
-  max-height: 80px;
-  max-width: 150px;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
+  .partner__image {
+    max-height: 80px;
+    max-width: 150px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
 
-.partner__image:hover {
-  opacity: 1;
-}
+  .partner__image:hover {
+    opacity: 1;
+  }
 
-.partner__image:hover {
-  opacity: 1;
-}
+  .partner__image:hover {
+    opacity: 1;
+  }
 
-/* ================================
+  /* ================================
    FOOTER SECTION
    ================================ */
-.footer {
-  background-color: #2c3e50; /* Dark blue, same as top banner */
-  color: #ecf0f1; /* Light gray text */
-  padding-top: 40px;
-}
-
-.footer__grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
-
-.footer__column {
-  padding: 0 15px;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.footer__title {
-  color: #fbdd12; /* Yellow */
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.footer__text {
-  line-height: 1.8;
-  margin: 0 0 15px 0;
-}
-
-.footer__highlight {
-  font-weight: bold;
-  color: #fbdd12; /* Yellow */
-}
-
-.footer__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  line-height: 2;
-}
-
-.footer__link {
-  color: #ecf0f1;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer__link:hover {
-  color: #fff;
-}
-
-.footer__copyright {
-  background-color: #233140; /* Slightly darker blue */
-  padding: 20px 0;
-  margin-top: 10px;
-}
-
-.footer__copyright-text {
-  text-align: center;
-  margin: 0;
-  font-size: 14px;
-  color: #bdc3c7; /* Lighter gray */
-}
-
-/* --- Responsive for Footer --- */
-
-/* 2 columns on tablets */
-@media (min-width: 768px) {
-  .footer__column {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .footer {
+    background-color: #2c3e50; /* Dark blue, same as top banner */
+    color: #ecf0f1; /* Light gray text */
+    padding-top: 40px;
   }
-}
 
-/* 4 columns on desktops */
-@media (min-width: 992px) {
-  .footer__column {
-    flex: 0 0 25%;
-    max-width: 25%;
+  .footer__grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
   }
-}
+
+  .footer__column {
+    padding: 0 15px;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  .footer__title {
+    color: #fbdd12; /* Yellow */
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer__text {
+    line-height: 1.8;
+    margin: 0 0 15px 0;
+  }
+
+  .footer__highlight {
+    font-weight: bold;
+    color: #fbdd12; /* Yellow */
+  }
+
+  .footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+  }
+
+  .footer__link {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer__link:hover {
+    color: #fff;
+  }
+
+  .footer__copyright {
+    background-color: #233140; /* Slightly darker blue */
+    padding: 20px 0;
+    margin-top: 10px;
+  }
+
+  .footer__copyright-text {
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+    color: #bdc3c7; /* Lighter gray */
+  }
+
+  /* --- Responsive for Footer --- */
+
+  /* 2 columns on tablets */
+  @media (min-width: 768px) {
+    .footer__column {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  /* 4 columns on desktops */
+  @media (min-width: 992px) {
+    .footer__column {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
 }
