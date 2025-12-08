@@ -27,7 +27,7 @@
         </div>
         <div class="header__clearfix"></div>
     </div>
-    <div class="header__main-container site-container">
+    <div class="header__main-container">
         <div class="header__logo">
             <a href="index.php" title="MyLiShop"> <img src="../../images/logohong.png"> </a>
         </div>

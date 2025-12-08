@@ -24,4 +24,7 @@ if (isset($_SESSION['cart'])) {
 <body>
     <!-- <a href="#" class="back-to-top"><i class="fa fa-arrow-up"></i></a> -->
 
-    <?php include("header.php"); ?>
+    <?php 
+    include("header.php");
+    include("banner.php");
+    ?>

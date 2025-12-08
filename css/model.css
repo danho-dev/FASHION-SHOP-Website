@@ -313,3 +313,47 @@ ul {
         text-align: center;
     }
 }
+
+/* ================================
+   BANNER SECTION
+   ================================ */
+.banner-section__content {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.banner-section__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.banner-section__item-thumbnail {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.banner-section__item-thumbnail:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.banner-section__image-wrapper {
+    overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
+}
+
+.banner-section__image {
+    display: block;
+    max-width: 100%;
+    height: auto; /* Giữ đúng tỷ lệ ảnh */
+    transition: transform 0.3s ease;
+}
+
+.banner-section__item-thumbnail:hover .banner-section__image {
+    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+}
