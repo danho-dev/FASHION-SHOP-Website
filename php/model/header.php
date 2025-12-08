@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 error_reporting(E_ALL ^ E_DEPRECATED);
 require_once('connect.php');
 $prd = 0;
@@ -90,7 +92,7 @@ if (isset($_GET['ls'])) {
                                         class="fa fa-search"></span></button>
                             </div>
                             <div class="header__cart-total">
-                                <a class="header__cart-background" href="view-cart.php" title="Giỏ hàng">
+                                <a class="header__cart-background" href="cart.php" title="Giỏ hàng">
                                     <button type="button" class="header__cart-button">
                                         <span class="fa fa-shopping-cart"></span>&nbsp;
                                         <span id="cart-total">

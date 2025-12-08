@@ -53,7 +53,7 @@
                     </div>
                     <hr class="detail__divider">
                     <div class="detail__actions">
-                        <a href="addcart.php?id=<?php echo $row['id']; ?>">
+                        <a href="_cart.php?id=<?php echo $row['id']; ?>">
                             <button class="detail__button">Đặt mua</button>
                         </a>
                     </div>

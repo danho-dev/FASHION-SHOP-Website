@@ -55,7 +55,7 @@ if (isset($_SESSION['cart'])) {
                                     Giá: <?php echo number_format($kq['price']); ?> đ
                                 </div>
                                 <div class="index__actions">
-                                    <a href="addcart.php?id=<?php echo $kq['id']; ?>">
+                                    <a href="_cart.php?id=<?php echo $kq['id']; ?>">
                                         <button type="button" class="index__button">
                                             Mua hàng
                                         </button>
@@ -93,7 +93,7 @@ if (isset($_SESSION['cart'])) {
                                     Giá: <?php echo number_format($kq['price']); ?> đ
                                 </div>
                                 <div class="index__actions">
-                                    <a href="addcart.php?id=<?php echo $kq['id']; ?>">
+                                    <a href="_cart.php?id=<?php echo $kq['id']; ?>">
                                         <button type="button" class="index__button">
                                             Mua hàng
                                         </button>
@@ -131,7 +131,7 @@ if (isset($_SESSION['cart'])) {
                                     Giá: <?php echo number_format($kq['price']); ?> đ
                                 </div>
                                 <div class="index__actions">
-                                    <a href="addcart.php?id=<?php echo $kq['id']; ?>">
+                                    <a href="_cart.php?id=<?php echo $kq['id']; ?>">
                                         <button type="button" class="index__button">
                                             Mua hàng
                                         </button>
