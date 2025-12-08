@@ -17,10 +17,10 @@ if (isset($_SESSION['cart'])) {
     <link rel="icon" type="image/png" href="../../images/icon-logo.gif">
     <link rel="stylesheet" type="text/css" href="../../css/model.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Swiper.js CSS -->
+    <script type="text/javascript" src="../../js/model.js"></script>
+    <!-- Swiper.js -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src='../../js/wow.js'></script>
-    <script type="text/javascript" src="../../js/mylishop.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -30,22 +30,121 @@ if (isset($_SESSION['cart'])) {
     include("header.php");
     include("banner.php");
     ?>
+        <!-- PRODUCT LISTTING | SẢN PHẨM MỚI -->
+        <div class="container">
+            <div class="index">
+                <div class="index__category">
+                    <div class="index__header">
+                        <h3 class="index__title">SẢN PHẨM MỚI</h3>
+                    </div>
+                    <div class="index__grid">
+                        <?php
+                            $sql = "SELECT id,image,name,price FROM products WHERE category_id=3 AND status = 0";
+                            $result = mysqli_query($conn,$sql);
+                            while ($kq = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="index__item">
+                            <div class="index__card">
+                                <div class="index__image-wrapper">
+                                    <img class="index__image" src="<?php echo "../../". $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                </div>
+                                <div class="index__name">
+                                    <?php echo $kq['name']; ?>
+                                </div>
+                                <div class="index__price">
+                                    Giá: <?php echo number_format($kq['price']); ?> đ
+                                </div>
+                                <div class="index__actions">
+                                    <a href="addcart.php?id=<?php echo $kq['id']; ?>">
+                                        <button type="button" class="index__button">
+                                            Mua hàng
+                                        </button>
+                                    </a>
+                                    <a href="detail.php?id=<?php echo $kq['id']; ?>">
+                                        <button type="button" class="index__button">Chi tiết</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+<?php } ?>
+                    </div>
+                </div>
 
-    <!-- Swiper.js JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+                <!-- PRODUCT LISTTING | THỜI TRANG NAM -->
+                <div class="index__category">
+                    <div class="index__header">
+                        <h3 class="index__title">Thời Trang Nam</h3>
+                    </div>
+                    <div class="index__grid">
+                        <?php
+                            $sql = "SELECT id,image,name,price FROM products WHERE category_id=1 LIMIT 8";
+                            $result = mysqli_query($conn,$sql);
+                            while ($kq = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="index__item">
+                            <div class="index__card">
+                                <div class="index__image-wrapper">
+                                    <img class="index__image" src="<?php echo "../../". $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                </div>
+                                <div class="index__name">
+                                    <?php echo $kq['name']; ?>
+                                </div>
+                                <div class="index__price">
+                                    Giá: <?php echo number_format($kq['price']); ?> đ
+                                </div>
+                                <div class="index__actions">
+                                    <a href="addcart.php?id=<?php echo $kq['id']; ?>">
+                                        <button type="button" class="index__button">
+                                            Mua hàng
+                                        </button>
+                                    </a>
+                                    <a href="detail.php?id=<?php echo $kq['id'] ?>">
+                                        <button type="button" class="index__button">Chi Tiết</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
 
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".banner-slider", {
-            loop: true, // Lặp lại slide
-            autoplay: {
-                delay: 3000, // Tự động chuyển slide sau 3 giây
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+                <!-- PRODUCT LISTTING | THỜI TRANG NỮ -->
+                <div class="index__category">
+                    <div class="index__header">
+                        <h3 class="index__title">Thời Trang Nữ</h3>
+                    </div>
+                    <div class="index__grid">
+                        <?php
+                            $sql = "SELECT id,image,name,price FROM products WHERE category_id=2 LIMIT 8";
+                            $result = mysqli_query($conn,$sql);
+                            while ($kq = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="index__item">
+                            <div class="index__card">
+                                <div class="index__image-wrapper">
+                                    <img class="index__image" src="<?php echo "../../". $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                </div>
+                                <div class="index__name">
+                                    <?php echo $kq['name']; ?>
+                                </div>
+                                <div class="index__price">
+                                    Giá: <?php echo number_format($kq['price']); ?> đ
+                                </div>
+                                <div class="index__actions">
+                                    <a href="addcart.php?id=<?php echo $kq['id']; ?>">
+                                        <button type="button" class="index__button">
+                                            Mua hàng
+                                        </button>
+                                    </a>
+                                    <a href="detail.php?id=<?php echo $kq['id'] ?>">
+                                        <button type="button" class="index__button">Chi Tiết</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
