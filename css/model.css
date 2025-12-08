@@ -186,7 +186,10 @@ ul {
   width: auto;
 }
 
-/* Using Flexbox for alignment */
+.header__logo,
+.header__account-section {
+  display: flex;
+  align-items: center;
 .header__logo,
 .header__account-section {
   display: flex;
@@ -219,6 +222,7 @@ ul {
 }
 
 .header__navbar-container {
+  padding: 0 15px;
   padding: 0 15px;
 }
 
@@ -720,4 +724,5 @@ ul {
     flex: 0 0 25%;
     max-width: 25%;
   }
+}
 }
