@@ -1,0 +1,38 @@
+name: Check Code Quality
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # Job 1: Kiểm tra lỗi cú pháp PHP
+  backend-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2' # Hoặc phiên bản PHP bạn đang dùng (7.4, 8.0...)
+        
+    - name: Check PHP Syntax Error
+      run: find . -name "*.php" ! -path "./vendor/*" -print0 | xargs -0 -n1 php -l
+      # Lệnh trên sẽ tìm tất cả file .php (trừ thư mục vendor) và chạy kiểm tra cú pháp
+
+  # Job 2: Kiểm tra định dạng HTML/CSS/JS bằng Prettier
+  frontend-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Run Prettier Check
+      # Kiểm tra xem code có đẹp và đúng chuẩn không
+      run: npx prettier --check "**/*.{js,css,html}"

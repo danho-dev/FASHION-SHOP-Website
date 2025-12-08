@@ -1,10 +1,10 @@
 // // Shopping cart
 // (function() {
- 
+
 //   $("#cart").on("click", function() {
 //     $(".shopping-cart").fadeToggle( "fast");
 //   });
-  
+
 // })();
 
 // // Form đăng ký
@@ -18,13 +18,15 @@
 // }
 
 /* --- Mobile Menu Toggle --- */
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileToggle = document.querySelector('.header__navbar-mobile-toggle');
-    const collapsibleMenu = document.querySelector('.header__navbar-collapsible-menu');
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileToggle = document.querySelector(".header__navbar-mobile-toggle");
+  const collapsibleMenu = document.querySelector(
+    ".header__navbar-collapsible-menu",
+  );
 
-    if (mobileToggle && collapsibleMenu) {
-        mobileToggle.addEventListener('click', function() {
-            collapsibleMenu.classList.toggle('is-open');
-        });
-    }
+  if (mobileToggle && collapsibleMenu) {
+    mobileToggle.addEventListener("click", function () {
+      collapsibleMenu.classList.toggle("is-open");
+    });
+  }
 });
