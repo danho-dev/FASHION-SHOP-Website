@@ -1,0 +1,25 @@
+# Dependencies managed by Composer
+/vendor/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Log files
+*.log
+logs/
+
+# IDE-specific directories
+.idea/
+.vscode/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# User-uploaded files
+/uploads/
+
+# User request: Ignore the .admin directory inside php/
+/php/.admin/
