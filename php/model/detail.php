@@ -27,45 +27,47 @@
         $thum_Image = $row['image'];
     }
     ?>
-    <div class="container">
-        <div class="detail">
-            <div class="detail__main">
-                <div class="detail__image-column">
-                    <img class="detail__image" src="<?php echo "../../" . $thum_Image; ?>" alt="<?php echo $row['name']; ?>">
-                </div>
-                <div class="detail__info-column">
-                    <h1 class="detail__name"><?php echo $row['name']; ?></h1>
-                    <hr class="detail__divider">
-                    <div class="detail__price-section">
-                        <?php
-                        if ($row['saleprice'] > 0) {
-                            $gia = $row['price'] - ($row['price'] * $row['saleprice'] / 100);
-                        ?>
-                            <p class="detail__price--old">Giá cũ: <del><?php echo number_format($row['price']); ?> đ</del></p>
-                            <p class="detail__price--current">Giá giảm còn: <?php echo number_format($gia); ?> đ</p>
-                        <?php
-                        } else {
-                        ?>
-                            <p class="detail__price--current">Giá sản phẩm: <?php echo number_format($row['price']); ?> đ</p>
-                        <?php
-                        }
-                        ?>
+    <main class="main-content">
+        <div class="container">
+            <div class="detail">
+                <div class="detail__main">
+                    <div class="detail__image-column">
+                        <img class="detail__image" src="<?php echo "../../" . $thum_Image; ?>" alt="<?php echo $row['name']; ?>">
                     </div>
-                    <hr class="detail__divider">
-                    <div class="detail__actions">
-                        <a href="_cart.php?id=<?php echo $row['id']; ?>">
-                            <button class="detail__button">Đặt mua</button>
-                        </a>
-                    </div>
-                    <div class="detail__policies">
-                        <p><i class="fa fa-check-circle"></i> GIAO HÀNG TOÀN QUỐC</p>
-                        <p><i class="fa fa-check-circle"></i> THANH TOÁN KHI NHẬN HÀNG</p>
-                        <p><i class="fa fa-check-circle"></i> ĐỔI HÀNG TRONG 15 NGÀY</p>
+                    <div class="detail__info-column">
+                        <h1 class="detail__name"><?php echo $row['name']; ?></h1>
+                        <hr class="detail__divider">
+                        <div class="detail__price-section">
+                            <?php
+                            if ($row['saleprice'] > 0) {
+                                $gia = $row['price'] - ($row['price'] * $row['saleprice'] / 100);
+                            ?>
+                                <p class="detail__price--old">Giá cũ: <del><?php echo number_format($row['price']); ?> đ</del></p>
+                                <p class="detail__price--current">Giá giảm còn: <?php echo number_format($gia); ?> đ</p>
+                            <?php
+                            } else {
+                            ?>
+                                <p class="detail__price--current">Giá sản phẩm: <?php echo number_format($row['price']); ?> đ</p>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                        <hr class="detail__divider">
+                        <div class="detail__actions">
+                            <a href="_cart.php?id=<?php echo $row['id']; ?>">
+                                <button class="detail__button">Đặt mua</button>
+                            </a>
+                        </div>
+                        <div class="detail__policies">
+                            <p><i class="fa fa-check-circle"></i> GIAO HÀNG TOÀN QUỐC</p>
+                            <p><i class="fa fa-check-circle"></i> THANH TOÁN KHI NHẬN HÀNG</p>
+                            <p><i class="fa fa-check-circle"></i> ĐỔI HÀNG TRONG 15 NGÀY</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <?php include "footer.php" ?>
 </body>

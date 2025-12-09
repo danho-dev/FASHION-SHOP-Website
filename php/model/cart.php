@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+    session_start(); // Bắt đầu session
 }
 require_once('connect.php');
 
@@ -14,10 +14,26 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-// Check for add to cart message
+// Xử lý cập nhật số lượng sản phẩm
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_cart_action'])) {
+    if (isset($_POST['quantity']) && is_array($_POST['quantity'])) {
+        foreach ($_POST['quantity'] as $id => $qty) {
+            // Đảm bảo số lượng là một số nguyên dương
+            $qty = (int)$qty;
+            if ($qty > 0 && isset($_SESSION['cart'][$id])) {
+                $_SESSION['cart'][$id]['quantity'] = $qty;
+            }
+        }
+    }
+    // Chuyển hướng để tránh gửi lại form khi tải lại trang
+    header("Location: cart.php");
+    exit();
+}
+
+// Hiển thị thông báo thêm vào giỏ hàng (nếu có)
 if (isset($_SESSION['add_to_cart_message'])) {
-    echo "<script type='text/javascript'>alert('" . $_SESSION['add_to_cart_message'] . "');</script>";
-    unset($_SESSION['add_to_cart_message']); // Clear the message after displaying
+    echo "<script type='text/javascript'>alert('" . htmlspecialchars($_SESSION['add_to_cart_message'], ENT_QUOTES) . "');</script>";
+    unset($_SESSION['add_to_cart_message']);
 }
 ?>
 
@@ -38,69 +54,71 @@ if (isset($_SESSION['add_to_cart_message'])) {
 <body>
     <?php include("header.php"); ?>
 
-    <div class="container">
-        <div class="cart">
-            <h1 class="cart__title">Giỏ Hàng Của Bạn</h1>
-            <?php if (!empty($_SESSION['cart'])) : ?>
-                <form action="update-cart.php" method="POST">
-                    <table class="cart__table">
-                        <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Ảnh</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
-                                <th>Xóa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $stt = 1;
-                            $total_price = 0;
-                            foreach ($_SESSION['cart'] as $id => $product) :
-                                $subtotal = $product['price'] * $product['quantity'];
-                                $total_price += $subtotal;
-                            ?>
+    <main class="main-content">
+        <div class="container">
+            <div class="cart">
+                <h1 class="cart__title">Giỏ Hàng Của Bạn</h1>
+                <?php if (!empty($_SESSION['cart'])) : ?>
+                    <form action="cart.php" method="POST">
+                        <table class="cart__table">
+                            <thead>
                                 <tr>
-                                    <td><?php echo $stt++; ?></td>
-                                    <td><img class="cart__product-image" src="<?php echo "../../" . $product['image']; ?>" alt="<?php echo $product['name']; ?>"></td>
-                                    <td><?php echo $product['name']; ?></td>
-                                    <td><?php echo number_format($product['price']); ?> đ</td>
-                                    <td>
-                                        <input type="number" name="quantity[<?php echo $id; ?>]" value="<?php echo $product['quantity']; ?>" min="1" class="cart__quantity-input">
-                                    </td>
-                                    <td><?php echo number_format($subtotal); ?> đ</td> 
-                                    <td>
-                                        <a href="_cart.php?action=remove&remove_id=<?php echo $id; ?>" class="cart__remove-link" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </td>
+                                    <th>STT</th>
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th>Xóa</th>
                                 </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $stt = 1;
+                                $total_price = 0;
+                                foreach ($_SESSION['cart'] as $id => $product) :
+                                    $subtotal = $product['price'] * $product['quantity'];
+                                    $total_price += $subtotal;
+                                ?>
+                                    <tr>
+                                        <td><?php echo $stt++; ?></td>
+                                        <td><img class="cart__product-image" src="<?php echo "../../" . $product['image']; ?>" alt="<?php echo $product['name']; ?>"></td>
+                                        <td><?php echo $product['name']; ?></td>
+                                        <td><?php echo number_format($product['price']); ?> đ</td>
+                                        <td>
+                                            <input type="number" name="quantity[<?php echo $id; ?>]" value="<?php echo $product['quantity']; ?>" min="1" class="cart__quantity-input">
+                                        </td>
+                                        <td><?php echo number_format($subtotal); ?> đ</td>
+                                        <td>
+                                            <a href="_cart.php?action=remove&remove_id=<?php echo $id; ?>" class="cart__remove-link" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
 
-                    <div class="cart__summary">
-                        <div class="cart__total">
-                            <strong>Tổng cộng: <?php echo number_format($total_price); ?> đ</strong>
+                        <div class="cart__summary">
+                            <div class="cart__total">
+                                <strong>Tổng cộng: <?php echo number_format($total_price); ?> đ</strong>
+                            </div>
+                            <div class="cart__actions">
+                                <a href="index.php" class="cart__button cart__button--continue">Tiếp tục mua sắm</a>
+                                <button type="submit" name="update_cart_action" class="cart__button cart__button--update">Cập nhật số lượng</button>
+                                <a href="checkout.php" class="cart__button cart__button--checkout">Thanh toán</a>
+                            </div>
                         </div>
-                        <div class="cart__actions">
-                            <a href="index.php" class="cart__button cart__button--continue">Tiếp tục mua sắm</a>
-                            <button type="submit" class="cart__button cart__button--update">Cập nhật giỏ hàng</button>
-                            <a href="checkout.php" class="cart__button cart__button--checkout">Thanh toán</a>
-                        </div>
+                    </form>
+                <?php else : ?>
+                    <div class="cart__empty">
+                        <p>Giỏ hàng của bạn đang trống.</p>
+                        <a href="index.php" class="cart__button cart__button--continue">Quay lại cửa hàng</a>
                     </div>
-                </form>
-            <?php else : ?>
-                <div class="cart__empty">
-                    <p>Giỏ hàng của bạn đang trống.</p>
-                    <a href="index.php" class="cart__button cart__button--continue">Quay lại cửa hàng</a>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
+    </main>
 
     <?php include("footer.php"); ?>
 </body>

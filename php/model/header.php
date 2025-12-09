@@ -80,7 +80,7 @@ if (isset($_GET['ls'])) {
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="lienhe.php"> Liên Hệ </a>
+                        <li><a href="contact.php"> Liên Hệ </a>
                         </li>
                     </ul>
                     <ul class="header__navbar-links-right">

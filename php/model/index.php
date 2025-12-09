@@ -30,123 +30,125 @@ if (isset($_SESSION['cart'])) {
     include("header.php");
     include("banner.php");
     ?>
-    <!-- PRODUCT LISTTING | SẢN PHẨM MỚI -->
-    <div class="container">
-        <div class="index">
-            <div class="index__category">
-                <div class="index__header">
-                    <h3 class="index__title">SẢN PHẨM MỚI</h3>
-                </div>
-                <div class="index__grid">
-                    <?php
-                    $sql = "SELECT id,image,name,price FROM products WHERE category_id=3 AND status = 0";
-                    $result = mysqli_query($conn, $sql);
-                    while ($kq = mysqli_fetch_assoc($result)) {
-                    ?>
-                        <div class="index__item">
-                            <div class="index__card">
-                                <div class="index__image-wrapper">
-                                    <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
-                                </div>
-                                <div class="index__name">
-                                    <?php echo $kq['name']; ?>
-                                </div>
-                                <div class="index__price">
-                                    Giá: <?php echo number_format($kq['price']); ?> đ
-                                </div>
-                                <div class="index__actions">
-                                    <a href="_cart.php?id=<?php echo $kq['id']; ?>">
-                                        <button type="button" class="index__button">
-                                            Mua hàng
-                                        </button>
-                                    </a>
-                                    <a href="detail.php?id=<?php echo $kq['id']; ?>">
-                                        <button type="button" class="index__button">Chi tiết</button>
-                                    </a>
+    <main class="main-content">
+        <!-- PRODUCT LISTTING | SẢN PHẨM MỚI -->
+        <div class="container">
+            <div class="index">
+                <div class="index__category">
+                    <div class="index__header">
+                        <h3 class="index__title">SẢN PHẨM MỚI</h3>
+                    </div>
+                    <div class="index__grid">
+                        <?php
+                        $sql = "SELECT id,image,name,price FROM products WHERE category_id=3 AND status = 0";
+                        $result = mysqli_query($conn, $sql);
+                        while ($kq = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <div class="index__item">
+                                <div class="index__card">
+                                    <div class="index__image-wrapper">
+                                        <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                    </div>
+                                    <div class="index__name">
+                                        <?php echo $kq['name']; ?>
+                                    </div>
+                                    <div class="index__price">
+                                        Giá: <?php echo number_format($kq['price']); ?> đ
+                                    </div>
+                                    <div class="index__actions">
+                                        <a href="_cart.php?id=<?php echo $kq['id']; ?>">
+                                            <button type="button" class="index__button">
+                                                Mua hàng
+                                            </button>
+                                        </a>
+                                        <a href="detail.php?id=<?php echo $kq['id']; ?>">
+                                            <button type="button" class="index__button">Chi tiết</button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
-            </div>
 
-            <!-- PRODUCT LISTTING | THỜI TRANG NAM -->
-            <div class="index__category">
-                <div class="index__header">
-                    <h3 class="index__title">Thời Trang Nam</h3>
-                </div>
-                <div class="index__grid">
-                    <?php
-                    $sql = "SELECT id,image,name,price FROM products WHERE category_id=1 LIMIT 8";
-                    $result = mysqli_query($conn, $sql);
-                    while ($kq = mysqli_fetch_assoc($result)) {
-                    ?>
-                        <div class="index__item">
-                            <div class="index__card">
-                                <div class="index__image-wrapper">
-                                    <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
-                                </div>
-                                <div class="index__name">
-                                    <?php echo $kq['name']; ?>
-                                </div>
-                                <div class="index__price">
-                                    Giá: <?php echo number_format($kq['price']); ?> đ
-                                </div>
-                                <div class="index__actions">
-                                    <a href="_cart.php?id=<?php echo $kq['id']; ?>">
-                                        <button type="button" class="index__button">
-                                            Mua hàng
-                                        </button>
-                                    </a>
-                                    <a href="detail.php?id=<?php echo $kq['id'] ?>">
-                                        <button type="button" class="index__button">Chi Tiết</button>
-                                    </a>
+                <!-- PRODUCT LISTTING | THỜI TRANG NAM -->
+                <div class="index__category">
+                    <div class="index__header">
+                        <h3 class="index__title">Thời Trang Nam</h3>
+                    </div>
+                    <div class="index__grid">
+                        <?php
+                        $sql = "SELECT id,image,name,price FROM products WHERE category_id=1 LIMIT 8";
+                        $result = mysqli_query($conn, $sql);
+                        while ($kq = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <div class="index__item">
+                                <div class="index__card">
+                                    <div class="index__image-wrapper">
+                                        <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                    </div>
+                                    <div class="index__name">
+                                        <?php echo $kq['name']; ?>
+                                    </div>
+                                    <div class="index__price">
+                                        Giá: <?php echo number_format($kq['price']); ?> đ
+                                    </div>
+                                    <div class="index__actions">
+                                        <a href="_cart.php?id=<?php echo $kq['id']; ?>">
+                                            <button type="button" class="index__button">
+                                                Mua hàng
+                                            </button>
+                                        </a>
+                                        <a href="detail.php?id=<?php echo $kq['id'] ?>">
+                                            <button type="button" class="index__button">Chi Tiết</button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
-            </div>
 
-            <!-- PRODUCT LISTTING | THỜI TRANG NỮ -->
-            <div class="index__category">
-                <div class="index__header">
-                    <h3 class="index__title">Thời Trang Nữ</h3>
-                </div>
-                <div class="index__grid">
-                    <?php
-                    $sql = "SELECT id,image,name,price FROM products WHERE category_id=2 LIMIT 8";
-                    $result = mysqli_query($conn, $sql);
-                    while ($kq = mysqli_fetch_assoc($result)) {
-                    ?>
-                        <div class="index__item">
-                            <div class="index__card">
-                                <div class="index__image-wrapper">
-                                    <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
-                                </div>
-                                <div class="index__name">
-                                    <?php echo $kq['name']; ?>
-                                </div>
-                                <div class="index__price">
-                                    Giá: <?php echo number_format($kq['price']); ?> đ
-                                </div>
-                                <div class="index__actions">
-                                    <a href="_cart.php?id=<?php echo $kq['id']; ?>">
-                                        <button type="button" class="index__button">
-                                            Mua hàng
-                                        </button>
-                                    </a>
-                                    <a href="detail.php?id=<?php echo $kq['id'] ?>">
-                                        <button type="button" class="index__button">Chi Tiết</button>
-                                    </a>
+                <!-- PRODUCT LISTTING | THỜI TRANG NỮ -->
+                <div class="index__category">
+                    <div class="index__header">
+                        <h3 class="index__title">Thời Trang Nữ</h3>
+                    </div>
+                    <div class="index__grid">
+                        <?php
+                        $sql = "SELECT id,image,name,price FROM products WHERE category_id=2 LIMIT 8";
+                        $result = mysqli_query($conn, $sql);
+                        while ($kq = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <div class="index__item">
+                                <div class="index__card">
+                                    <div class="index__image-wrapper">
+                                        <img class="index__image" src="<?php echo "../../" . $kq['image']; ?>" alt="<?php echo $kq['name']; ?>">
+                                    </div>
+                                    <div class="index__name">
+                                        <?php echo $kq['name']; ?>
+                                    </div>
+                                    <div class="index__price">
+                                        Giá: <?php echo number_format($kq['price']); ?> đ
+                                    </div>
+                                    <div class="index__actions">
+                                        <a href="_cart.php?id=<?php echo $kq['id']; ?>">
+                                            <button type="button" class="index__button">
+                                                Mua hàng
+                                            </button>
+                                        </a>
+                                        <a href="detail.php?id=<?php echo $kq['id'] ?>">
+                                            <button type="button" class="index__button">Chi Tiết</button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 
 <?php 
