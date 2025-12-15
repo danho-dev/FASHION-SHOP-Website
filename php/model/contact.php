@@ -34,7 +34,7 @@ if (isset($_GET['cf'])) {
             <div class="contact__container">
                 <h1 class="contact__title">Thông Tin Liên Hệ</h1>
                 <p class="contact__subtitle">Chúng tôi luôn sẵn sàng lắng nghe từ bạn. Vui lòng điền vào biểu mẫu bên dưới.</p>
-                <form name="form-lien-he" action="lienhe_back.php" method="POST" class="contact__form">
+                <form name="form-lien-he" action="_contact.php" method="POST" class="contact__form">
                     <div class="contact__form-grid">
                         <div class="contact__group">
                             <label for="contact-name" class="contact__label">Họ và tên <span class="contact__required">*</span></label>

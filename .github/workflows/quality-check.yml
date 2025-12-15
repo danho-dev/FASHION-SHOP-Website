@@ -17,10 +17,10 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.2' # Hoặc phiên bản PHP bạn đang dùng (7.4, 8.0...)
-        
+
     - name: Check PHP Syntax Error
-      run: find . -name "*.php" ! -path "./vendor/*" -print0 | xargs -0 -n1 php -l
-      # Lệnh trên sẽ tìm tất cả file .php (trừ thư mục vendor) và chạy kiểm tra cú pháp
+      # Tìm tất cả file .php, loại trừ vendor và node_modules
+      run: find . -type f -name "*.php" -not -path "./vendor/*" -not -path "./node_modules/*" -print0 | xargs -0 -n1 php -l
 
   # Job 2: Kiểm tra định dạng HTML/CSS/JS bằng Prettier
   frontend-check:
@@ -35,4 +35,4 @@ jobs:
         
     - name: Run Prettier Check
       # Kiểm tra xem code có đẹp và đúng chuẩn không
-      run: npx prettier --check "**/*.{js,css,html}"
+      run: npx prettier --check "**/*.{js,css,html}" --ignore-path .gitignore

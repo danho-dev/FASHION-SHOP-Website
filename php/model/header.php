@@ -84,6 +84,16 @@ if (isset($_GET['ls'])) {
                         </li>
                     </ul>
                     <ul class="header__navbar-links-right">
+                        <!-- Bộ lọc giá -->
+                        <div class="header__price-filter">
+                            <button class="header__filter-button" title="Lọc giá"><i class="fa fa-filter"></i></button>
+                            <div class="header__filter-dropdown">
+                                <a href="search.php?price_range=1">Dưới 100.000đ</a>
+                                <a href="search.php?price_range=2">100.000đ - 300.000đ</a>
+                                <a href="search.php?price_range=3">300.000đ - 500.000đ</a>
+                                <a href="search.php?price_range=4">Trên 500.000đ</a>
+                            </div>
+                        </div>
                         <form role="search" action="search.php" method="POST">
                             <div class="header__search-group">
                                 <input type="text" maxlength="50" name="search" id="searchs" class="header__search-input"

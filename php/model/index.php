@@ -28,6 +28,7 @@ if (isset($_SESSION['cart'])) {
 
     <?php
     include("header.php");
+    include("slider.php");
     include("banner.php");
     ?>
     <main class="main-content">
