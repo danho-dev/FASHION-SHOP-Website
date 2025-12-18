@@ -5,4 +5,4 @@ mysqli_set_charset($conn, 'UTF8');
 if (!$conn) {
     die("Kết nối thất bại: " . mysqli_connect_error());
 }
-echo "<script>console.log('Kết nối thành công!');</script>";
+// echo "<script>console.log('Kết nối thành công!');</script>";

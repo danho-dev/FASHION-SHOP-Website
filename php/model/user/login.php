@@ -27,6 +27,22 @@ if (isset($_GET['error'])) {
     <link rel="stylesheet" type="text/css" href="../../../css/model.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="../../js/model.js"></script>
+    <style>
+        .login-form__forgot {
+            text-align: right;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .login-form__forgot a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .login-form__forgot a:hover {
+            color: #e84393; /* Màu hồng chủ đạo của shop */
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,6 +71,10 @@ if (isset($_GET['error'])) {
                     </div>
                 </div>
 
+                <div class="login-form__forgot">
+                    <a href="forgot_password.php">Quên mật khẩu?</a>
+                </div>
+                
                 <button type="submit" name="submit" class="login-form__button">Đăng nhập</button>
 
                 <div class="login-form__footer">

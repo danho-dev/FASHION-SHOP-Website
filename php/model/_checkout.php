@@ -59,7 +59,6 @@ try {
         }
     }
 
-    // 5. Nếu mọi thứ thành công, commit transaction
     mysqli_commit($conn);
 
     // 6. Xóa giỏ hàng và chuyển hướng
@@ -73,7 +72,6 @@ try {
 } catch (Exception $e) {
     // 7. Nếu có lỗi, rollback transaction
     mysqli_rollback($conn);
-    // Bạn có thể ghi log lỗi ở đây: error_log($e->getMessage());
     header("Location: checkout.php?error=1"); // Chuyển về trang checkout với thông báo lỗi
     exit();
 }

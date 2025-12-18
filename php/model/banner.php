@@ -1,21 +1,24 @@
 <div class="container">
-    <!-- Slider main container -->
-    <div class="banner-slider swiper wow fadeIn">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <?php
-            require_once("connect.php");
-            $sql = "SELECT image FROM slides WHERE status=2";
-            $result = mysqli_query($conn, $sql);
-            while ($kq = mysqli_fetch_assoc($result)) {
-            ?>
-                <div class="swiper-slide">
-                    <img class="banner-slider__image" src="<?php echo "../../" . $kq['image']; ?>" alt="Banner Image">
-                </div>
-            <?php } ?>
+    <div class="banner-grid">
+        <div class="banner-grid__header">
+            <h3 class="banner-grid__title">BANNER</h3>
         </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
+        <div class="banner-grid__items">
+            <?php
+            // Không cần require_once('connect.php') nữa nếu đã có ở index.php
+            // Lấy 4 ảnh từ bảng slides với status = 2. Bỏ cột 'link' vì nó không tồn tại.
+            $sql_banner = "SELECT image FROM slides WHERE status = 2 LIMIT 4";
+            $result_banner = mysqli_query($conn, $sql_banner);
+            if (mysqli_num_rows($result_banner) > 0) {
+                while ($row_banner = mysqli_fetch_assoc($result_banner)) {
+            ?>
+                    <div class="banner-grid__item">
+                        
+                        <img class="banner-grid__image" src="<?php echo "../../" . htmlspecialchars($row_banner['image']); ?>" alt="Banner quảng cáo">
+                        
+                    </div>
+            <?php }
+            } ?>
+        </div>
     </div>
 </div>

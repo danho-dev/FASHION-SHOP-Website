@@ -3,6 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once('connect.php');
+require_once('_price-filter.php');
 
 // Khởi tạo các biến
 $searchKeyword = '';
@@ -25,6 +26,14 @@ if (isset($_POST['search']) && !empty(trim($_POST['search']))) {
     if ($resultSearch) {
         $totalnumber = mysqli_num_rows($resultSearch);
     }
+} elseif (!empty($price_filter_sql)) {
+    // Xử lý lọc theo giá từ logic trong _price-filter.php
+    $sql = "SELECT id, image, name, price, saleprice FROM products WHERE " . $price_filter_sql;
+    $resultSearch = mysqli_query($conn, $sql);
+    if ($resultSearch) {
+        $totalnumber = mysqli_num_rows($resultSearch);
+    }
+    $searchKeyword = $price_filter_title;
 } else {
     $message = "Vui lòng nhập từ khóa tìm kiếm.";
 }
@@ -56,8 +65,6 @@ if (isset($_POST['search']) && !empty(trim($_POST['search']))) {
                     <div class="index__header">
                         <h3 class="index__title">Kết Quả Tìm Kiếm</h3>
                     </div>
-                    <p>Tìm thấy <?php echo $totalnumber; ?> sản phẩm cho từ khóa "<strong><?php echo htmlspecialchars($searchKeyword); ?></strong>"</p>
-
                     <div class="index__grid">
                         <?php
                         if ($totalnumber > 0) {
