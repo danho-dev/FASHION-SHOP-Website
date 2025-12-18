@@ -341,7 +341,7 @@ ul {
   left: 0;
   background-color: #fff;
   min-width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #eee;
   border-radius: 4px;
   z-index: 1000;
@@ -1366,7 +1366,9 @@ ul {
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .banner-grid__item:hover {
